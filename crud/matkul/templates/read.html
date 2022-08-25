@@ -1,0 +1,39 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <title>Employee Records</title>  
+     {% load staticfiles %}  
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"/>  
+</head>  
+<body>  
+<table class="table table-striped table-bordered table-sm">  
+    <thead class="thead-dark">  
+    <tr>  
+        <th> ID</th>  
+        <th>Nama Matkul</th>  
+        <th>Dosen</th>  
+        <th>SKS</th>  
+        <th>Actions</th>  
+    </tr>  
+    </thead>  
+    <tbody>  
+{% for matkul in matkuls %}  
+    <tr>  
+        <td>{{ matkul.id }}</td>  
+        <td>{{ matkul.nama_matkul }}</td>  
+        <td>{{ matkul.dosen }}</td>  
+        <td>{{ matkul.sks }}</td>  
+        <td>  
+            <a href="/update_matkul/{{ matkul.id }}"><span class="glyphicon glyphicon-pencil" >Edit</span></a>  
+            <a href="/delete/{{ matkul.id }}">Delete</a>  
+        </td>  
+    </tr>  
+{% endfor %}  
+    </tbody>  
+</table>  
+<br>  
+<br>  
+<center><a href="/create" class="btn btn-primary">Add New Record</a></center>  
+</body>  
+</html>  
